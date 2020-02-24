@@ -4,10 +4,72 @@ namespace Guess_The_Number
 {
     class Program
     {
+
+            //Variable creation
+            static int userNumber; 
+            static int randomNumber;
+            static  int playerAttempts;
+            static bool gameOver;
+
+        /// <summary>
+        /// Guess the number core, iteration and variable asignation happens here.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the guess the number game!");
+            gameOver = false;
+            playerAttempts = 0;
 
+            Console.WriteLine("Welcome to the guess the number game!");
+            Console.WriteLine("Please type a positive number, this number will be the maximum between a range of itself and 0 to select an aleatory number.");
+
+
+            userNumber = UserInputRequest();
+
+            //Avoid user to use 0 or an invalid number
+            if(userNumber == 0)
+            {       
+                while(userNumber == 0)
+                {
+                userNumber = UserInputRequest();
+                }
+            }
+            //Generate random number
+            else
+            {
+              randomNumber = RandomizeInRange(userNumber);
+            }
+
+            //Iterate until player wins!
+            while(!gameOver)
+            {
+                Console.WriteLine("Please type a number to guess between 1 and {0}!", userNumber);
+                int attemptedNumber = UserInputRequest();
+
+                if(attemptedNumber != randomNumber)
+                {
+                    playerAttempts = playerAttempts + 1;
+                    Console.WriteLine("You have tried {0} times.", playerAttempts);
+                
+                    if(attemptedNumber > randomNumber)
+                    {
+                        Console.WriteLine("Try less!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Try more!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Congratulations! you won!.");
+                    Console.WriteLine("It only cost you {0} attempts.", playerAttempts);
+                    Console.WriteLine("Press any key to exit!");
+                    Console.ReadKey();
+                    gameOver = true;
+                }
+
+            }
 
         }
         
