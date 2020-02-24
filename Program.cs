@@ -7,6 +7,31 @@ namespace Guess_The_Number
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+        }
+
+        static int UserInputRequest()
+        {
+        
+            int number;
+            //Input request for user
+          String userInput = Console.ReadLine();
+            //Clean spaces in the string
+          userInput = userInput.Replace(" ", "");
+
+            //Avoid error inputs with try parse.
+            bool isInputParsable = Int32.TryParse(userInput, out number); 
+        
+            if(isInputParsable)
+            {
+              return Convert.ToInt32(userInput);
+            }
+            else
+            {
+              Console.WriteLine("Input was not correct, please use only numbers.")
+              return 0;
+            }
+
         }
     }
 }
