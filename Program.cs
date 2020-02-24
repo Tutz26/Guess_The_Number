@@ -11,7 +11,24 @@ namespace Guess_The_Number
 
         }
         
-        
+        /// <summary>
+        /// Create a random number between 0 and the threshold, it also makes the number positive if a negative number was used.
+        /// </summary>
+        /// <param name="maxThrehsholdNumber"></param>
+        /// <returns></returns>
+        static int RandomizeInRange(int maxThrehsholdNumber)
+        {
+            Random rNumber = new Random();
+
+            if(maxThrehsholdNumber < 0)
+            {
+                maxThrehsholdNumber = maxThrehsholdNumber * (-1);
+            }
+            //Creates random number between the range
+            int randomNumberGenerator = rNumber.Next(0, maxThrehsholdNumber); 
+
+            return randomNumberGenerator;
+        }
 
 
         /// <summary>
