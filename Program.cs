@@ -87,7 +87,7 @@ namespace Guess_The_Number
                 maxThrehsholdNumber = maxThrehsholdNumber * (-1);
             }
             //Creates random number between the range
-            int randomNumberGenerator = rNumber.Next(0, maxThrehsholdNumber); 
+            int randomNumberGenerator = rNumber.Next(1, maxThrehsholdNumber); 
 
             return randomNumberGenerator;
         }
