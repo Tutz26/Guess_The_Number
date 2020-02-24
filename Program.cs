@@ -6,10 +6,18 @@ namespace Guess_The_Number
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to the guess the number game!");
+
 
         }
+        
+        
 
+
+        /// <summary>
+        /// It converts the user input into integer or lets you know if it can't be converted.
+        /// </summary>
+        /// <returns></returns>
         static int UserInputRequest()
         {
         
@@ -28,7 +36,7 @@ namespace Guess_The_Number
             }
             else
             {
-              Console.WriteLine("Input was not correct, please use only numbers.")
+              Console.WriteLine("Input was not correct, please use only numbers.");
               return 0;
             }
 
